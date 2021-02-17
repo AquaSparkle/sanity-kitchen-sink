@@ -5,6 +5,7 @@ import Hero from "../components/hero";
 import InfoRows from "../components/InfoRows";
 import CTAColumns from "../components/cta-columns";
 import CTA from "../components/cta";
+import MozcomBanner from "../components/MozcomBanner";
 import Pricing from "../components/pricing";
 import { TopWave, BottomWave } from "../components/wave";
 
@@ -83,6 +84,9 @@ const Page = (props) => {
         case "ctaPlug":
           el = <CTA key={c._key} {...c} />;
           break;
+        case "mozcomBanner":
+          el = <MozcomBanner key={c._key} {...c} />;
+        break;
         case "uiComponentRef":
           switch (c.name) {
             case "topWave":

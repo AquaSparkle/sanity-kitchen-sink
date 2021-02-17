@@ -23,6 +23,7 @@
     "@sanity/code-input",
     "@sanity/color-input",
     "mux-input",
+    "intl-input",
     "google-analytics",
     "@sanity/production-preview"
   ],

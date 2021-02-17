@@ -13,6 +13,8 @@ import post from './documents/post'
 import page from './documents/page'
 import siteSettings from './documents/siteSettings'
 import route from './documents/route'
+import site from './documents/site'
+import location from './documents/location'
 
 import experiment from './objects/experiment'
 import simpleBlockContent from './objects/simpleBlockContent'
@@ -31,6 +33,7 @@ import link from './objects/link'
 import variation from './objects/variation'
 import openGraph from './objects/openGraph'
 import latex from './latex'
+import mozcomBanner from './objects/mozcomBanner'
 
 const allPlugs = Object.values(plugs).map((plug) => {
   return { ...plug, fields: plugDefaultFields.concat(plug.fields) }
@@ -62,6 +65,9 @@ export default createSchema({
       videoEmbed,
       bodyPortableText,
       excerptPortableText,
+      mozcomBanner,
+      location,
+      site
     ])
     .concat(allPlugs),
 })
