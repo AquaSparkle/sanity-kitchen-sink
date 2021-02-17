@@ -5,11 +5,6 @@ import blog from './src/structure/blog'
 import landingPages from './src/structure/landingPages'
 import siteManagement from './src/structure/siteManagement'
 import PreviewIFrame from './src/components/previewIFrame'
-import * as Structure from 'sanity-plugin-intl-input/lib/structure';
-
-// default implementation by re-exporting
-export const getDefaultDocumentNode = Structure.getDefaultDocumentNode;
-export default Structure.default;
 
 const hiddenDocTypes = (listItem) =>
   !['route', 'navigationMenu', 'post', 'page', 'siteSettings', 'author', 'category', 'location', 'site'].includes(
