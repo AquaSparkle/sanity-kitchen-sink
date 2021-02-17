@@ -23,15 +23,16 @@ export default {
         type: 'string',
         title: 'Site Id'
       }
-    ],
-    options: {
-        i18n: true,
-        base: 'en_US',
-        languages: ['en_US', 'nl_NL'],
-        css: (classNames) => `${classNames} custom-classname`,
-        messages: {
-          loading: 'Loading languages...',
-          missingTranslations: 'Missing translations message...',
-        },
-    },
+    ]
+    // ,
+    // options: {
+    //     i18n: true,
+    //     base: 'en_US',
+    //     languages: ['en_US', 'nl_NL'],
+    //     css: (classNames) => `${classNames} custom-classname`,
+    //     messages: {
+    //       loading: 'Loading languages...',
+    //       missingTranslations: 'Missing translations message...',
+    //     },
+    // },
   }
