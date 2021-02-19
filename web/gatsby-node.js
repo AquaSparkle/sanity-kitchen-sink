@@ -52,11 +52,13 @@ async function createLandingPages(pathPrefix = "/", graphql, actions, reporter) 
   });
 }
 
+const siteId = 'hw-in';
+
 async function createCustomRoutes(pathPrefix = "/", graphql, actions, reporter) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityLocation(filter: { siteId : { eq: "hw-in"}, pages: {elemMatch: {pageType: {eq: "home"}, id: {ne: "null"}}}  } ) {
+      allSanityLocation(filter: { siteId : { eq: "${siteId}"}, pages: {elemMatch: {pageType: {eq: "home"}, id: {ne: "null"}}}  } ) {
           nodes {
             id
             title
