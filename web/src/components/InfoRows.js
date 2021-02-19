@@ -58,6 +58,7 @@ const InfoRowFlipped = props => {
 };
 
 const InfoRows = props => {
+  console.log('Info Rows === ',props );
   const contentRows = (props.rows || [])
     .filter(r => !r.disabled)
     .map((r, i) => {

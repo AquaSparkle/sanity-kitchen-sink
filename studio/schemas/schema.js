@@ -15,6 +15,8 @@ import siteSettings from './documents/siteSettings'
 import route from './documents/route'
 import site from './documents/site'
 import location from './documents/location'
+import topBannerItem from './documents/topBannerItem'
+import topBanner from './documents/topBanner'
 
 import experiment from './objects/experiment'
 import simpleBlockContent from './objects/simpleBlockContent'
@@ -32,6 +34,7 @@ import authorReference from './objects/authorReference'
 import link from './objects/link'
 import variation from './objects/variation'
 import openGraph from './objects/openGraph'
+import history from './objects/history'
 import latex from './latex'
 import mozcomBanner from './objects/mozcomBanner'
 
@@ -67,6 +70,9 @@ export default createSchema({
       excerptPortableText,
       mozcomBanner,
       location,
+      topBanner,
+      topBannerItem,
+      history,
       site
     ])
     .concat(allPlugs),

@@ -40,6 +40,17 @@ export const query = graphql`
       ...PageInfo
     }
 
+    location: sanityLocation(siteId: {eq: "hw-in"}) {
+      id
+      title
+      siteId
+      pages {
+        title
+        pageType
+        _rawContent
+      }
+    }
+
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       primaryColor {
         hex
@@ -61,6 +72,8 @@ export const query = graphql`
 
 const IndexPage = (props) => {
   const { data, errors } = props;
+
+  console.log('DATA ', data);
 
   if (errors) {
     return <Errors errors={errors} />;

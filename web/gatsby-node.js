@@ -52,6 +52,56 @@ async function createLandingPages(pathPrefix = "/", graphql, actions, reporter) 
   });
 }
 
+async function createCustomRoutes(pathPrefix = "/", graphql, actions, reporter) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityLocation(filter: { siteId : { eq: "hw-in"}, pages: {elemMatch: {pageType: {eq: "home"}, id: {ne: "null"}}}  } ) {
+          nodes {
+            id
+            title
+            siteId
+            pages {
+              title
+              pageType
+              _rawContent
+            }
+          }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors;
+
+  const routeNodes = (result.data.allSanityLocation || {}).nodes || [];
+  routeNodes.forEach((node) => {
+    const { pages } = node;
+    pages.forEach(page => {
+      const { _rawContent, pageType } = page;
+      if (pageType === 'home') {
+        _rawContent.forEach(content => {
+          const {_type } = content;
+          if (_type === 'topBanner') {
+            const { items } = content;
+            items && items.forEach(item => {
+              const {route} = item;
+              const {  slug: { current } } = route;
+
+              const path = [pathPrefix, current, "/"].join("");
+              createPage({
+                path,
+                component: require.resolve("./src/templates/home.js"),
+                context: { route },
+              });
+            })
+          }
+        })
+      }
+    })
+
+  });
+}
+
 async function createBlogPostPages(pathPrefix = "/blog", graphql, actions, reporter) {
   const { createPage } = actions;
   const result = await graphql(`
@@ -89,5 +139,6 @@ async function createBlogPostPages(pathPrefix = "/blog", graphql, actions, repor
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   await createLandingPages("/", graphql, actions, reporter);
+  await createCustomRoutes("/test", graphql, actions, reporter);
   await createBlogPostPages("/blog", graphql, actions, reporter);
 };

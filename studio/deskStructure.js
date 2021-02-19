@@ -7,7 +7,7 @@ import siteManagement from './src/structure/siteManagement'
 import PreviewIFrame from './src/components/previewIFrame'
 
 const hiddenDocTypes = (listItem) =>
-  !['route', 'navigationMenu', 'post', 'page', 'siteSettings', 'author', 'category', 'location', 'site'].includes(
+  ![ 'site', 'location', 'topBanner', 'topBannerItem', 'navigationMenu', 'post',  'siteSettings', 'author', 'category'].includes(
     listItem.getId()
   )
 

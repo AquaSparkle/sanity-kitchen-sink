@@ -26,7 +26,7 @@ export default {
   fields: [
     {
       name: 'page',
-      type: 'reference',
+      type: 'page',
       validation: (Rule) => Rule.required(),
       description: 'The page you want to appear at this path. Remember it needs to be published.',
       to: [
@@ -95,12 +95,6 @@ export default {
         layout: 'tags'
       }
     }, */
-    {
-      name: 'campaign',
-      type: 'string',
-      title: 'Campaign',
-      description: 'UTM for campaings'
-    },
     /*
     // This can be used by a server-side rendered website. We plan to figure out proper JAMstack support
     {

@@ -22,6 +22,15 @@ export default {
         name: 'siteId',
         type: 'string',
         title: 'Site Id'
+      },
+      {
+        name: 'pages',
+        type: 'array',
+        title: 'Pages',
+        description: 'Add pages',
+        of: [
+          { type: 'page' }
+        ],
       }
     ]
     // ,

@@ -44,8 +44,9 @@ export const query = graphql`
 `;
 
 const Page = (props) => {
-  const { data, errors } = props;
+  const { data, errors , route} = props;
 
+  console.log('props ====== ', props)
   if (errors) {
     return (
       <Layout>
@@ -85,6 +86,8 @@ const Page = (props) => {
           el = <CTA key={c._key} {...c} />;
           break;
         case "mozcomBanner":
+          el = <MozcomBanner key={c._key} {...c} />;
+        case "topBanner":
           el = <MozcomBanner key={c._key} {...c} />;
         break;
         case "uiComponentRef":

@@ -17,6 +17,19 @@ export default {
       description: 'Which nav menu should be shown, if any',
     },
     {
+      title: 'Page Type',
+      name: 'pageType',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Home', value: 'home'},
+          {title: 'Product Listing', value: 'plp'},
+          {title: 'Product Details', value: 'pdp'},
+          {title: 'Privacy Policy', value: 'policy'}
+        ]
+      }
+    },
+    {
       name: 'content',
       type: 'array',
       title: 'Page sections',
@@ -28,7 +41,10 @@ export default {
         { type: 'infoRows' },
         { type: 'ctaColumns' },
         { type: 'ctaPlug' },
-        { type: 'mozcomBanner' }
+        { type: 'mozcomBanner' },
+        { type: 'history' },
+        { type: 'topBanner' }
+
       ],
     },
   ],
